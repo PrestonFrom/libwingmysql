@@ -65,6 +65,12 @@ QueryHandle::~QueryHandle()
     m_bind_params.clear();
 }
 
+auto QueryHandle::Reset() -> void {
+    freeResult();
+    m_query_parts.clear();
+    m_bind_params.clear();
+}
+
 auto QueryHandle::SetOnCompleteHandler(
     OnCompleteHandler on_complete
 ) -> void {
